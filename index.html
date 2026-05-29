@@ -244,7 +244,7 @@
 <!-- ==================== PAGE 1: 工作台 ==================== -->
 <div class="page active" id="page-workspace">
   <div class="page-header">
-    <div><h1>早上好，李明</h1><p>今天是 2026年5月29日 星期五 · 你有 <span style="color:#EF4444;font-weight:600">3项紧急任务</span> 待处理</p></div>
+    <div><h1 id="greeting-text">早上好，李明</h1><p id="today-info">今天是 <span id="today-date"></span> · 你有 <span style="color:#EF4444;font-weight:600">3项紧急任务</span> 待处理</p></div>
     <div class="page-actions">
       <button class="btn">新建选题</button><button class="btn">新建脚本</button><button class="btn primary">新建项目</button>
     </div>
@@ -322,52 +322,20 @@
 <div class="page" id="page-calendar">
   <div class="page-header"><div><h1>内容日历</h1><p>管理所有内容排期和发布计划</p></div><div class="page-actions"><button class="btn">今天</button><button class="btn">+ 添加排期</button></div></div>
   <div class="filter-bar">
-    <div style="display:flex;align-items:center;gap:12px"><button class="btn sm" style="padding:0 8px">◀</button><span style="font-size:16px;font-weight:600;color:#1F2937">2026年5月</span><button class="btn sm" style="padding:0 8px">▶</button></div>
+    <div style="display:flex;align-items:center;gap:12px"><button class="btn sm" style="padding:0 8px">◀</button><span id="cal-month-title" style="font-size:16px;font-weight:600;color:#1F2937">2026年5月</span><button class="btn sm" style="padding:0 8px">▶</button></div>
     <div style="margin-left:auto;display:flex;gap:6px"><span class="filter-tag active">月视图</span><span class="filter-tag">周视图</span></div>
     <select class="filter-select"><option>全部平台</option><option>抖音</option><option>B站</option></select>
     <select class="filter-select"><option>全部负责人</option><option>李明</option><option>坨坨不困</option></select>
   </div>
   <div class="card" style="margin-bottom:20px"><div style="padding:16px">
-    <div class="cal-grid">
-      <div class="cal-head">周一</div><div class="cal-head">周二</div><div class="cal-head">周三</div><div class="cal-head">周四</div><div class="cal-head">周五</div><div class="cal-head">周六</div><div class="cal-head">周日</div>
-      <div class="cal-cell other"><div class="cal-day">27</div></div><div class="cal-cell other"><div class="cal-day">28</div></div><div class="cal-cell other"><div class="cal-day">29</div></div><div class="cal-cell other"><div class="cal-day">30</div></div><div class="cal-cell other"><div class="cal-day">1</div></div><div class="cal-cell other"><div class="cal-day">2</div></div><div class="cal-cell other"><div class="cal-day">3</div></div>
-      <div class="cal-cell"><div class="cal-day">4</div><div class="cal-event blue">A股周报发布</div></div>
-      <div class="cal-cell"><div class="cal-day">5</div></div>
-      <div class="cal-cell"><div class="cal-day">6</div><div class="cal-event green">基金科普EP3</div></div>
-      <div class="cal-cell"><div class="cal-day">7</div></div>
-      <div class="cal-cell"><div class="cal-day">8</div><div class="cal-event orange">理财指南录制</div></div>
-      <div class="cal-cell"><div class="cal-day">9</div></div>
-      <div class="cal-cell"><div class="cal-day">10</div></div>
-      <div class="cal-cell"><div class="cal-day">11</div><div class="cal-event blue">港股通解析</div></div>
-      <div class="cal-cell"><div class="cal-day">12</div></div>
-      <div class="cal-cell"><div class="cal-day">13</div><div class="cal-event purple">宏观月报发布</div><div class="cal-event pink">抖音直播</div></div>
-      <div class="cal-cell"><div class="cal-day">14</div></div>
-      <div class="cal-cell"><div class="cal-day">15</div></div>
-      <div class="cal-cell"><div class="cal-day">16</div></div>
-      <div class="cal-cell"><div class="cal-day">17</div></div>
-      <div class="cal-cell"><div class="cal-day">18</div><div class="cal-event blue">ETF科普发布</div></div>
-      <div class="cal-cell"><div class="cal-day">19</div></div>
-      <div class="cal-cell"><div class="cal-day">20</div><div class="cal-event green">定投入门EP4</div></div>
-      <div class="cal-cell"><div class="cal-day">21</div></div>
-      <div class="cal-cell"><div class="cal-day">22</div><div class="cal-event orange">消费趋势分析</div></div>
-      <div class="cal-cell"><div class="cal-day">23</div></div>
-      <div class="cal-cell"><div class="cal-day">24</div></div>
-      <div class="cal-cell"><div class="cal-day">25</div><div class="cal-event blue">A股半年报EP1</div></div>
-      <div class="cal-cell"><div class="cal-day">26</div></div>
-      <div class="cal-cell"><div class="cal-day">27</div><div class="cal-event purple">央行解读发布</div></div>
-      <div class="cal-cell"><div class="cal-day">28</div><div class="cal-event blue">半年报EP2录制</div></div>
-      <div class="cal-cell today"><div class="cal-day">29</div><div class="cal-event green">避坑指南发布</div></div>
-      <div class="cal-cell"><div class="cal-day">30</div><div class="cal-event orange">港股通剪辑</div></div>
-      <div class="cal-cell"><div class="cal-day">31</div><div class="cal-event pink">ETF全平台发布</div></div>
-      <div class="cal-cell other"><div class="cal-day">1</div></div>
-    </div>
+    <div id="cal-grid" class="cal-grid">
   </div></div>
   <div class="card"><div class="card-header"><div class="card-title">本周排期详情</div></div>
     <table class="data-table"><thead><tr><th>日期</th><th>内容标题</th><th>平台</th><th>状态</th><th>负责人</th><th>提醒</th></tr></thead>
-    <tbody>
-      <tr><td>5月29日</td><td style="font-weight:500">《理财避坑指南》</td><td><span class="pill red">抖音</span> <span class="pill blue">B站</span></td><td><span class="pill green">待发布</span></td><td><span class="mini-avatar" style="background:#3B5BDB">李</span></td><td>发布前2小时</td></tr>
-      <tr><td>5月29日</td><td style="font-weight:500">《A股半年报EP2》录制</td><td><span class="pill gray">内部</span></td><td><span class="pill orange">进行中</span></td><td><span class="mini-avatar" style="background:#F59E0B">坨</span></td><td>当天上午</td></tr>
-      <tr><td>5月30日</td><td style="font-weight:500">《港股通深度解析》剪辑</td><td><span class="pill gray">内部</span></td><td><span class="pill orange">进行中</span></td><td><span class="mini-avatar" style="background:#10B981">且</span></td><td>提前1天</td></tr>
+    <tbody id="cal-schedule-body">
+      <tr><td class="sched-today">5月29日</td><td style="font-weight:500">《理财避坑指南》</td><td><span class="pill red">抖音</span> <span class="pill blue">B站</span></td><td><span class="pill green">待发布</span></td><td><span class="mini-avatar" style="background:#3B5BDB">李</span></td><td>发布前2小时</td></tr>
+      <tr><td class="sched-today">5月29日</td><td style="font-weight:500">《A股半年报EP2》录制</td><td><span class="pill gray">内部</span></td><td><span class="pill orange">进行中</span></td><td><span class="mini-avatar" style="background:#F59E0B">坨</span></td><td>当天上午</td></tr>
+      <tr><td class="sched-tomorrow">5月30日</td><td style="font-weight:500">《港股通深度解析》剪辑</td><td><span class="pill gray">内部</span></td><td><span class="pill orange">进行中</span></td><td><span class="mini-avatar" style="background:#10B981">且</span></td><td>提前1天</td></tr>
       <tr><td>5月31日</td><td style="font-weight:500">《ETF入门科普》全平台</td><td><span class="pill red">抖音</span> <span class="pill blue">B站</span> <span class="pill pink">小红书</span></td><td><span class="pill blue">排期中</span></td><td><span class="mini-avatar" style="background:#8B5CF6">吕</span></td><td>发布前1天</td></tr>
     </tbody></table>
   </div>
@@ -383,7 +351,7 @@
   <div class="card">
     <table class="data-table"><thead><tr><th><input type="checkbox"></th><th>视频标题</th><th>发布平台</th><th>计划时间</th><th>标签</th><th>封面</th><th>负责人</th><th>状态</th><th>发布链接</th></tr></thead>
     <tbody>
-      <tr><td><input type="checkbox"></td><td style="font-weight:500">《理财避坑指南：年轻人必知的5个陷阱》</td><td><span class="pill red">抖音</span> <span class="pill blue">B站</span></td><td>5月29日 20:00</td><td><span class="pill purple">理财</span> <span class="pill cyan">避坑</span></td><td><div style="width:48px;height:30px;border-radius:4px;background:linear-gradient(135deg,#667eea,#764ba2)"></div></td><td><span class="mini-avatar" style="background:#3B5BDB">李</span></td><td><span class="pill green">待发布</span></td><td><span style="color:#9CA3AF">待补录</span></td></tr>
+      <tr><td><input type="checkbox"></td><td style="font-weight:500">《理财避坑指南：年轻人必知的5个陷阱》</td><td><span class="pill red">抖音</span> <span class="pill blue">B站</span></td><td class="pub-today">5月29日 20:00</td><td><span class="pill purple">理财</span> <span class="pill cyan">避坑</span></td><td><div style="width:48px;height:30px;border-radius:4px;background:linear-gradient(135deg,#667eea,#764ba2)"></div></td><td><span class="mini-avatar" style="background:#3B5BDB">李</span></td><td><span class="pill green">待发布</span></td><td><span style="color:#9CA3AF">待补录</span></td></tr>
       <tr><td><input type="checkbox"></td><td style="font-weight:500">《美联储加息对我们钱包的影响》</td><td><span class="pill red">抖音</span></td><td>5月26日 19:00</td><td><span class="pill purple">宏观</span> <span class="pill cyan">美联储</span></td><td><div style="width:48px;height:30px;border-radius:4px;background:linear-gradient(135deg,#f093fb,#f5576c)"></div></td><td><span class="mini-avatar" style="background:#F59E0B">坨</span></td><td><span class="pill blue">已发布</span></td><td><a style="color:#3B5BDB;font-size:12px;cursor:pointer">查看链接</a></td></tr>
       <tr><td><input type="checkbox"></td><td style="font-weight:500">《年轻人为什么要懂基金定投》</td><td><span class="pill blue">B站</span> <span class="pill pink">小红书</span></td><td>5月25日 18:30</td><td><span class="pill purple">基金</span> <span class="pill cyan">定投</span></td><td><div style="width:48px;height:30px;border-radius:4px;background:linear-gradient(135deg,#4facfe,#00f2fe)"></div></td><td><span class="mini-avatar" style="background:#10B981">且</span></td><td><span class="pill blue">已发布</span></td><td><a style="color:#3B5BDB;font-size:12px;cursor:pointer">查看链接</a></td></tr>
       <tr><td><input type="checkbox"></td><td style="font-weight:500">《养老金账户怎么用最划算》</td><td><span class="pill pink">小红书</span></td><td>5月23日 12:00</td><td><span class="pill purple">养老金</span></td><td><div style="width:48px;height:30px;border-radius:4px;background:linear-gradient(135deg,#a8edea,#fed6e3)"></div></td><td><span class="mini-avatar" style="background:#8B5CF6">吕</span></td><td><span class="pill blue">已发布</span></td><td><a style="color:#3B5BDB;font-size:12px;cursor:pointer">查看链接</a></td></tr>
@@ -471,7 +439,7 @@
 
 <!-- ==================== PAGE 7: 月度报表 ==================== -->
 <div class="page" id="page-monthly-report">
-  <div class="page-header"><div><h1>月度运营报表 — 2026年5月</h1><p>自动生成月度运营报告，支持导出 PDF / Word</p></div><div class="page-actions"><select class="filter-select"><option>2026年5月</option><option>2026年4月</option><option>2026年3月</option></select><button class="btn">导出 PDF</button><button class="btn primary">导出 Word</button></div></div>
+  <div class="page-header"><div><h1 id="monthly-report-title">月度运营报表 — 2026年5月</h1><p>自动生成月度运营报告，支持导出 PDF / Word</p></div><div class="page-actions"><select id="monthly-report-select" class="filter-select"><option>2026年5月</option><option>2026年4月</option><option>2026年3月</option></select><button class="btn">导出 PDF</button><button class="btn primary">导出 Word</button></div></div>
   <div class="stat-row col5">
     <div class="stat-card"><div><div class="stat-label">月度总播放</div><div class="stat-value">86.3<span style="font-size:14px;color:#6B7280">万</span></div><div class="stat-change up">环比 +18%</div></div><div class="stat-icon blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
     <div class="stat-card"><div><div class="stat-label">发布内容数</div><div class="stat-value">42</div><div class="stat-change up">环比 +8</div></div><div class="stat-icon green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div></div>
@@ -3752,7 +3720,7 @@ function initOpsCharts() {
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['5/22','5/23','5/24','5/25','5/26','5/27','5/28'],
+      labels: window._dynamicChartLabels || ['5/22','5/23','5/24','5/25','5/26','5/27','5/28'],
       datasets: [{
         label: '播放量', data: [85000, 92000, 105000, 128000, 115000, 135000, 126000],
         borderColor: '#3B5BDB', backgroundColor: bg, borderWidth: 2.5, fill: true, tension: 0.4,
@@ -3777,6 +3745,118 @@ function initOpsCharts() {
     }
   });
 }
+
+// ===== Dynamic date initialization =====
+function initDates() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();       // 0-indexed
+  const date = now.getDate();
+  const dayOfWeek = now.getDay();     // 0=Sun
+  const hour = now.getHours();
+
+  // Chinese helpers
+  const weekdays = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+  const fmtMD = (d) => (d.getMonth()+1) + '月' + d.getDate() + '日';
+  const addDays = (d, n) => { const r = new Date(d); r.setDate(r.getDate()+n); return r; };
+
+  // 1. Workspace greeting
+  const greet = hour < 6 ? '凌晨好' : hour < 9 ? '早上好' : hour < 12 ? '上午好' : hour < 14 ? '中午好' : hour < 18 ? '下午好' : '晚上好';
+  const el1 = document.getElementById('greeting-text');
+  if (el1) el1.textContent = greet + '，李明';
+  const el2 = document.getElementById('today-date');
+  if (el2) el2.textContent = year + '年' + (month+1) + '月' + date + '日 ' + weekdays[dayOfWeek];
+
+  // 2. Calendar
+  const grid = document.getElementById('cal-grid');
+  if (grid) {
+    const events = {
+      4:  {t:'A股周报发布', c:'blue'},
+      6:  {t:'基金科普EP3', c:'green'},
+      8:  {t:'理财指南录制', c:'orange'},
+      11: {t:'港股通解析', c:'blue'},
+      13: [{t:'宏观月报发布', c:'purple'},{t:'抖音直播', c:'pink'}],
+      18: {t:'ETF科普发布', c:'blue'},
+      20: {t:'定投入门EP4', c:'green'},
+      22: {t:'消费趋势分析', c:'orange'},
+      25: {t:'A股半年报EP1', c:'blue'},
+      27: {t:'央行解读发布', c:'purple'},
+    };
+    // Today & nearby
+    events[date] = {t:'避坑指南发布', c:'green'};
+    if (date+1 <= new Date(year, month+1, 0).getDate()) events[date+1] = {t:'港股通剪辑', c:'orange'};
+    if (date+2 <= new Date(year, month+1, 0).getDate()) events[date+2] = {t:'ETF全平台发布', c:'pink'};
+    if (date-1 >= 1) events[date-1] = {t:'半年报EP2录制', c:'blue'};
+
+    let html = '';
+    ['周一','周二','周三','周四','周五','周六','周日'].forEach(d => { html += '<div class="cal-head">'+d+'</div>'; });
+
+    const firstDay = new Date(year, month, 1);
+    let startDow = firstDay.getDay(); // 0=Sun
+    startDow = startDow === 0 ? 6 : startDow - 1; // Mon=0
+    const daysInMonth = new Date(year, month+1, 0).getDate();
+    const prevDays = new Date(year, month, 0).getDate();
+
+    // Previous month tail
+    for (let i = startDow - 1; i >= 0; i--) {
+      html += '<div class="cal-cell other"><div class="cal-day">'+(prevDays - i)+'</div></div>';
+    }
+    // Current month
+    for (let d = 1; d <= daysInMonth; d++) {
+      const isToday = d === date;
+      html += '<div class="cal-cell'+(isToday?' today':'')+'"><div class="cal-day">'+d+'</div>';
+      if (events[d]) {
+        const evts = Array.isArray(events[d]) ? events[d] : [events[d]];
+        evts.forEach(e => { html += '<div class="cal-event '+e.c+'">'+e.t+'</div>'; });
+      }
+      html += '</div>';
+    }
+    // Next month head (fill to 42 = 6 rows)
+    const totalCells = startDow + daysInMonth;
+    const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    for (let i = 1; i <= remaining; i++) {
+      html += '<div class="cal-cell other"><div class="cal-day">'+i+'</div></div>';
+    }
+    grid.innerHTML = html;
+  }
+
+  // 3. Calendar month title
+  const calTitle = document.getElementById('cal-month-title');
+  if (calTitle) calTitle.textContent = year + '年' + (month+1) + '月';
+
+  // 4. Calendar schedule table — today & tomorrow rows
+  const todayStr = (month+1) + '月' + date + '日';
+  const tmr = addDays(now, 1);
+  const tmrStr = (tmr.getMonth()+1) + '月' + tmr.getDate() + '日';
+  document.querySelectorAll('.sched-today').forEach(el => { el.textContent = todayStr; });
+  document.querySelectorAll('.sched-tomorrow').forEach(el => { el.textContent = tmrStr; });
+
+  // 5. Publish plan — today row
+  document.querySelectorAll('.pub-today').forEach(el => { el.textContent = todayStr + ' 20:00'; });
+
+  // 6. Monthly report title & dropdown
+  const curMonthLabel = year + '年' + (month+1) + '月';
+  const pm1 = addDays(new Date(year, month-1, 1), 0);
+  const pm2 = addDays(new Date(year, month-2, 1), 0);
+  const m1Label = pm1.getFullYear() + '年' + (pm1.getMonth()+1) + '月';
+  const m2Label = pm2.getFullYear() + '年' + (pm2.getMonth()+1) + '月';
+  const rptTitle = document.getElementById('monthly-report-title');
+  if (rptTitle) rptTitle.textContent = '月度运营报表 — ' + curMonthLabel;
+  const rptSel = document.getElementById('monthly-report-select');
+  if (rptSel) rptSel.innerHTML = '<option>'+curMonthLabel+'</option><option>'+m1Label+'</option><option>'+m2Label+'</option>';
+
+  // 7. Ops dashboard chart labels (last 7 days)
+  const chartLabels = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = addDays(now, -i);
+    chartLabels.push((d.getMonth()+1) + '/' + d.getDate());
+  }
+  // Store for chart use
+  window._dynamicChartLabels = chartLabels;
+}
+
+// Init dates on load
+initDates();
 </script>
 </body>
 </html>
